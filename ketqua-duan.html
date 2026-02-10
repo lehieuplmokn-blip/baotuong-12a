@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Trình Chiếu Kết Quả Dự Án - Báo Tường Lớp 12A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .slides-container {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 4.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
+        h2 { font-size: 3rem; }
+        p, ul { font-size: 1.4rem; max-width: 900px; margin: 1rem auto; }
+        ul { text-align: left; list-style: none; padding-left: 0; }
+        ul li { margin: 1rem 0; position: relative; padding-left: 2rem; }
+        ul li::before { content: "•"; position: absolute; left: 0; color: #60a5fa; font-size: 1.8rem; }
+        .nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.4);
+            color: white;
+            border: none;
+            font-size: 3rem;
+            padding: 15px 25px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .nav-btn:hover { background: rgba(0,0,0,0.7); }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        .progress {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            z-index: 1000;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            p, ul { font-size: 1.2rem; }
+            .nav-btn { font-size: 2.5rem; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slides-container">
+    <!-- Slide 1: Tiêu đề -->
+    <div class="slide active" id="slide1">
+        <h1>DỰ ÁN: TRANG WEB BÁO TƯỜNG ĐIỆN TỬ LỚP 12A</h1>
+        <h2>Tri Ân Thầy Cô – Kỷ Niệm Tuổi Học Trò</h2>
+        <p>Môn Tin học 12 | Nhóm: Lê Hiếu và Hiệp </p>
+        <p>Năm học 2025–2026</p>
+    </div>
+
+    <!-- Slide 2: Thành viên & Kế hoạch -->
+    <div class="slide" id="slide2">
+        <h2>Thành viên & Kế hoạch thực hiện dự án</h2>
+        <div style="display: flex; justify-content: space-around; width: 90%; max-width: 1200px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px; margin: 1rem;">
+                <h3>Thành viên nhóm</h3>
+                <ul>
+                    <li>Hiếu: Thiết kế giao diện, code HTML/CSS, chèn ảnh/video</li>
+                    <li>Hiếu: Soạn nội dung bài viết, viết bài viết tri ân </li>
+                    <li>Hiệp:  thu thập ảnh kỉ niệm </li>
+                    <li>Hiệp: Test, chỉnh sửa & hoàn thiện sản phẩm</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px; margin: 1rem;">
+                <h3>Kế hoạch triển khai</h3>
+                <ul>
+                    <li> Lên ý tưởng, phân công nhiệm vụ</li>
+                    <li> Thu thập nội dung, ảnh, video, nhạc</li>
+                    <li> Code HTML + CSS, làm responsive</li>
+                    <li> Hoàn thiện, test trên nhiều thiết bị & sửa lỗi</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-style: italic;">Nhờ phân công rõ ràng, nhóm hoàn thành đúng hạn và rất vui vẻ!</p>
+    </div>
+
+    <!-- Slide 3: Ý tưởng & Thiết kế -->
+    <div class="slide" id="slide3">
+        <h2>Ý tưởng thiết kế trang web báo tường</h2>
+        <p>Chủ đề: Tri ân thầy cô & lưu giữ kỷ niệm đẹp của lớp 12A</p>
+        <ul>
+            <li>Cấu trúc rõ ràng: Header (tiêu đề + slogan + ảnh nền) → Menu → Nội dung chính → Footer</li>
+            <li>Các phần nổi bật: Lời ngỏ, Bài viết hay, Ảnh &  Đôi lời tâm sự, Góc bình luận</li>
+            <li>Responsive: Đẹp trên máy tính, điện thoại & máy tính bảng</li>
+            <li>Màu sắc: Xanh dương nhạt – trắng – điểm nhấn nhẹ nhàng , tạo cảm giác tươi trẻ, ấm áp</li>
+        </ul>
+        <p style="margin-top: 2rem;">Mục tiêu: Trang web không chỉ đẹp mà còn chứa đựng tình cảm chân thành của tập thể lớp.</p>
+    </div>
+
+    <!-- Slide 4: Kỹ thuật áp dụng -->
+    <div class="slide" id="slide4">
+        <h2>Các kỹ thuật HTML & CSS đã sử dụng</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 90%; max-width: 1200px;">
+            <div>
+                <h3>Kênh chữ</h3>
+                <ul>
+                    <li>Thẻ <code>&lt;h1&gt;–&lt;h3&gt;</code>, <code>&lt;p&gt;</code>, danh sách <code>&lt;ul&gt;</code></li>
+                    <li>Font Google Fonts (Roboto & Dancing Script)</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kênh hình ảnh</h3>
+                <ul>
+                    <li><code>&lt;img&gt;</code> với border-radius, box-shadow, hover zoom</li>
+                    <li>Ảnh nền header (background-image)</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Tương tác & Responsive</h3>
+                <ul>
+                    <li>Hover effect, transition, flexbox, media queries</li>
+                    <li>Form bình luận demo, back-to-top button</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-style: italic;">Nhờ CSS linh hoạt, trang web trở nên bắt mắt và thân thiện trên mọi thiết bị.</p>
+    </div>
+
+    <!-- Slide 5: Đánh giá & Bài học -->
+    <div class="slide" id="slide5">
+        <h2>Tự đánh giá sản phẩm & Bài học rút ra</h2>
+        <div style="display: flex; justify-content: space-around; width: 90%; max-width: 1200px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px; margin: 1rem;">
+                <h3>Điểm mạnh</h3>
+                <ul>
+                    <li>Giao diện đẹp, sinh động, đa kênh thông tin (chữ + hình )</li>
+                    <li>Bố cục hợp lý, responsive tốt trên mobile & desktop</li>
+                    <li>Nội dung ấm áp, phù hợp chủ đề tri ân & kỷ niệm lớp</li>
+                    <li>Hoàn thiện trên GitHub Pages, dễ chia sẻ link</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px; margin: 1rem;">
+                <h3>Điểm cần cải thiện & Bài học</h3>
+                <ul>
+                    <li>Có thể thêm bình luận realtime (Utterances) ở phiên bản sau</li>
+                    <li>Tối ưu tốc độ load ảnh/video lớn</li>
+                    <li>Bài học: Làm việc nhóm hiệu quả, quản lý thời gian, hiểu sâu hơn về HTML/CSS, deploy web miễn phí</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Kết thúc -->
+    <div class="slide" id="slide6">
+        <h1>CẢM ƠN QUÝ THẦY CÔ & CÁC BẠN!</h1>
+        <p style="font-size: 2rem; margin: 2rem 0;">Cảm ơn thầy cô đã hướng dẫn tận tình môn Tin học</p>
+        <p style="font-size: 2rem;">Cảm ơn bạn Hiệp đã đồng hành và hỗ trợ</p>
+        <p style="font-size: 2.5rem; margin: 3rem 0; font-style: italic;">
+            Mời thầy cô & các bạn xem trang web: <br>
+            <a href="https://lehieuplmokn-blip.github.io/baotuong-12a/" target="_blank" style="color: #1e40af; text-decoration: none; font-weight: bold;">
+                https://lehiueplmokn-blip.github.io/baotuong-12a/
+            </a>
+        </p>
+        <p style="font-size: 2rem; color: #e65100;">"12A – Tuổi học trò mãi là những kỷ niệm đẹp nhất!"</p>
+        <p style="margin-top: 2rem; font-style: italic;">Học hết mình, chơi hết sức, yêu thương hết lòng!</p>
+    </div>
+</div>
+
+<!-- Nút điều hướng -->
+<button class="nav-btn prev" onclick="prevSlide()">‹</button>
+<button class="nav-btn next" onclick="nextSlide()">›</button>
+
+<!-- Progress -->
+<div class="progress" id="progress">Slide 1 / 6</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const progress = document.getElementById('progress');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        progress.textContent = `Slide ${index + 1} / ${slides.length}`;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Click màn hình để next
+    document.addEventListener('click', e => {
+        if (!e.target.closest('.nav-btn')) nextSlide();
+    });
+
+    // Tự động next sau 15 giây (tùy chọn, có thể xóa nếu không muốn)
+    // setInterval(nextSlide, 15000);
+</script>
+
+</body>
+</html>
